@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #8b78e6;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 74px;
+    color: #fff;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.upload-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    margin-bottom: -3px;
+}
+.inputfile + label {
+    font-size: 18px;
+    color: white;
+    background-color: #ec4849;
+    padding: 12px 32px;
+    border-radius: 7px;
+    transition: 0.2s;
+    box-shadow: 0px 14px 30px 0px rgba(211, 81, 135, 0.3);
+    cursor: pointer;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    transform: translateY(-5px);
+}
+
+.upload-section {
+    margin: 16px;
+    width: 400px;
+    height: 200px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 1px rgba(180, 190, 221, 0.5);
+}
+
+.img-preview {
+    width: 300px;
+    height: auto;
+    margin: 16px;
+}
+img {
+    width: 100%;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+button {
+    padding: 12px 48px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    margin-top: 32px;
+    border-radius: 7px;
+    background-color: #ec4849;
+    box-shadow: 0px 14px 30px 0px rgba(199, 54, 114, 0.5);
+    transition: 0.3s;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    transform: translateY(-5px);
+}

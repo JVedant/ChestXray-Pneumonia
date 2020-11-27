@@ -1,0 +1,21 @@
+flask==1.1.2
+ipykernel==5.3.4
+ipython==7.19.0
+jupyter==1.0.0
+Keras==2.4.3
+Keras-Preprocessing==1.1.2
+keras-tuner==1.0.1
+matplotlib==3.3.2
+numpy==1.18.5
+opencv-python==4.4.0.46
+pandas==1.1.4
+Pillow==8.0.1
+pyglet==1.5.0
+Pygments==2.7.2
+pylint==2.6.0
+regex==2020.11.13
+requests==2.24.0
+rsa==4.6
+scipy==1.5.4
+tensorflow== 2.3
+tqdm==4.51.0

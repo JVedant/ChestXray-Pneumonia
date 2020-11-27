@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="static/css/style.css" />
+        <title>Pneumonia analysis using X-Ray</title>
+    </head>
+    <body>
+        <h1>Pneumonia analysis using X-Ray</h1>
+        <form
+            action="{{ url_for('predict') }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+            <div class="upload-section">
+                <input
+                    type="file"
+                    name="file"
+                    id="file"
+                    class="inputfile"
+                    onchange="previewFile()"
+                />
+                <label for="file">
+                    <svg
+                        class="upload-icon"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                        ></path>
+                    </svg>
+                    Choose a X-Ray image
+                </label>
+            </div>
+
+            <div class="img-preview">
+                <img src="" height="200" alt="Image preview..." />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <br /><br /><br /><br />
+        <h3>{{ predicted_label }}</h3>
+        <script>
+            function previewFile() {
+                var preview = document.querySelector("img");
+                var file = document.querySelector("input[type=file]").files[0];
+                var reader = new FileReader();
+
+                reader.onloadend = function () {
+                    preview.src = reader.result;
+                };
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    preview.src = "";
+                    console.log(preview.src);
+                }
+            }
+        </script>
+    </body>
+</html>
