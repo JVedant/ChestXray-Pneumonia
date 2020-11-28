@@ -1,9 +1,11 @@
 from flask import Flask, request, render_template
+import urllib
 import cv2
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.applications.vgg16 import preprocess_input
 import numpy as np
+import boto3
 from tensorflow.keras.layers import LeakyReLU
 import tensorflow as tf
 import re
@@ -12,8 +14,15 @@ import os
 
 with tf.device('/cpu:0'):
 
+    '''import boto3
+    s3 = boto3.resource('s3')
+    queue = sqs.get_queue_by_name(QueueName='test')
+
+    url = "s3://pneumonia-detection-model/vgg_16_model.h5"
+    file = urllib.request.urlopen(url)
+'''
     app = Flask(__name__)
-    model = load_model(filepath=os.path.join('models' + '/h5', 'vgg_16_model.h5'), custom_objects={'LeakyReLU': LeakyReLU})
+    model = load_model(filepath=os.path.join('models/h5', 'vgg_16_model.h5'), custom_objects={'LeakyReLU': LeakyReLU})
     model.make_predict_function()
 
     @app.route("/")
